@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A15AEF81EFA1C85D5CDE307 /* Pods_BookMyShowTrial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708AA2484355DE82372CB1E3 /* Pods_BookMyShowTrial.framework */; };
 		510942C9229E8DB60006DF6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510942C8229E8DB60006DF6B /* AppDelegate.swift */; };
-		510942CB229E8DB60006DF6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510942CA229E8DB60006DF6B /* ViewController.swift */; };
 		510942CE229E8DB60006DF6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510942CC229E8DB60006DF6B /* Main.storyboard */; };
 		510942D1229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 510942CF229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld */; };
 		510942D3229E8DC10006DF6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510942D2229E8DC10006DF6B /* Assets.xcassets */; };
 		510942D6229E8DC10006DF6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510942D4229E8DC10006DF6B /* LaunchScreen.storyboard */; };
+		510942E0229E96040006DF6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 510942DF229E96040006DF6B /* Podfile */; };
+		510942E2229E9F440006DF6B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 510942E1229E9F440006DF6B /* credentials.plist */; };
+		510942E4229EA23F0006DF6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510942E3229EA23F0006DF6B /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		510942C5229E8DB60006DF6B /* BookMyShowTrial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyShowTrial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		510942C8229E8DB60006DF6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		510942CA229E8DB60006DF6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		510942CD229E8DB60006DF6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510942D0229E8DB60006DF6B /* BookMyShowTrial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookMyShowTrial.xcdatamodel; sourceTree = "<group>"; };
 		510942D2229E8DC10006DF6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		510942D5229E8DC10006DF6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		510942D7229E8DC10006DF6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		510942DF229E96040006DF6B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		510942E1229E9F440006DF6B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		510942E3229EA23F0006DF6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		708AA2484355DE82372CB1E3 /* Pods_BookMyShowTrial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMyShowTrial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E955A2690BE5F34B3E05B24 /* Pods-BookMyShowTrial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.release.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.release.xcconfig"; sourceTree = "<group>"; };
+		99A973AC5FBA0016723A2C15 /* Pods-BookMyShowTrial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.debug.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A15AEF81EFA1C85D5CDE307 /* Pods_BookMyShowTrial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27F11ED601F50137EBA0E2BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				510942DF229E96040006DF6B /* Podfile */,
+				99A973AC5FBA0016723A2C15 /* Pods-BookMyShowTrial.debug.xcconfig */,
+				7E955A2690BE5F34B3E05B24 /* Pods-BookMyShowTrial.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		510942BC229E8DB60006DF6B = {
 			isa = PBXGroup;
 			children = (
 				510942C7229E8DB60006DF6B /* BookMyShowTrial */,
 				510942C6229E8DB60006DF6B /* Products */,
+				27F11ED601F50137EBA0E2BC /* Pods */,
+				7800D7122C831B7B2F59BECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +78,23 @@
 			isa = PBXGroup;
 			children = (
 				510942C8229E8DB60006DF6B /* AppDelegate.swift */,
-				510942CA229E8DB60006DF6B /* ViewController.swift */,
 				510942CC229E8DB60006DF6B /* Main.storyboard */,
 				510942D2229E8DC10006DF6B /* Assets.xcassets */,
 				510942D4229E8DC10006DF6B /* LaunchScreen.storyboard */,
 				510942D7229E8DC10006DF6B /* Info.plist */,
+				510942E1229E9F440006DF6B /* credentials.plist */,
 				510942CF229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld */,
+				510942E3229EA23F0006DF6B /* LoginViewController.swift */,
 			);
 			path = BookMyShowTrial;
+			sourceTree = "<group>";
+		};
+		7800D7122C831B7B2F59BECC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708AA2484355DE82372CB1E3 /* Pods_BookMyShowTrial.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 510942DA229E8DC10006DF6B /* Build configuration list for PBXNativeTarget "BookMyShowTrial" */;
 			buildPhases = (
+				B3FEBAD2703DFADAF73B68AF /* [CP] Check Pods Manifest.lock */,
 				510942C1229E8DB60006DF6B /* Sources */,
 				510942C2229E8DB60006DF6B /* Frameworks */,
 				510942C3229E8DB60006DF6B /* Resources */,
+				FCC9D8438BE7688AA948E897 /* [CP] Embed Pods Frameworks */,
+				C9231892F431B21AE6DA6551 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,18 +160,79 @@
 			files = (
 				510942D6229E8DC10006DF6B /* LaunchScreen.storyboard in Resources */,
 				510942D3229E8DC10006DF6B /* Assets.xcassets in Resources */,
+				510942E2229E9F440006DF6B /* credentials.plist in Resources */,
+				510942E0229E96040006DF6B /* Podfile in Resources */,
 				510942CE229E8DB60006DF6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B3FEBAD2703DFADAF73B68AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BookMyShowTrial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9231892F431B21AE6DA6551 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCC9D8438BE7688AA948E897 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		510942C1229E8DB60006DF6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				510942CB229E8DB60006DF6B /* ViewController.swift in Sources */,
+				510942E4229EA23F0006DF6B /* LoginViewController.swift in Sources */,
 				510942C9229E8DB60006DF6B /* AppDelegate.swift in Sources */,
 				510942D1229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld in Sources */,
 			);
@@ -284,6 +378,7 @@
 		};
 		510942DB229E8DC10006DF6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99A973AC5FBA0016723A2C15 /* Pods-BookMyShowTrial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +397,7 @@
 		};
 		510942DC229E8DC10006DF6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E955A2690BE5F34B3E05B24 /* Pods-BookMyShowTrial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
