@@ -188,6 +188,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.pictureImageViewOutlet.sd_setImage(with: imageURL, placeholderImage: UIImage(named:"Entertanment.png"))
                 cell.rateLabelOutlet.text = String(tempDetail.vote_average)
                 cell.popularityLabelOutlet.text = String(tempDetail.popularity)
+                cell.categoryType = 0
+                cell.id = tempDetail.id
             }
         }else {
             if let tempDetail = self.TvShowsResults?.results[indexPath.row]{
@@ -199,8 +201,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.pictureImageViewOutlet.sd_setImage(with: imageURL, placeholderImage: UIImage(named:"Entertanment.png"))
                 cell.rateLabelOutlet.text = String(tempDetail.vote_average)
                 cell.popularityLabelOutlet.text = String(tempDetail.popularity)
+                cell.categoryType = 1
+                cell.id = tempDetail.id
             }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailViewController.id = collectionView.tag == 1 ? self.MovieResults?.results[indexPath.row].id : self.TvShowsResults?.results[indexPath.row].id
+        detailViewController.categoryType = collectionView.tag == 1 ? "movie" : "tv"
+        self.present(detailViewController, animated: true, completion: nil)
     }
 }

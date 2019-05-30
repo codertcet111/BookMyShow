@@ -25,6 +25,10 @@
 		510BA1A3229FB42B00499C75 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A2229FB42B00499C75 /* Helper.swift */; };
 		510BA1A5229FCD3B00499C75 /* TvShowResultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */; };
 		510BA1A7229FCD9200499C75 /* MovieResultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */; };
+		510BA1A9229FE9D400499C75 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A8229FE9D400499C75 /* DetailViewController.swift */; };
+		510BA1AB229FFBE400499C75 /* castCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1AA229FFBE400499C75 /* castCollectionViewCell.swift */; };
+		510BA1AD229FFBFB00499C75 /* reviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1AC229FFBFB00499C75 /* reviewCollectionViewCell.swift */; };
+		510BA1AF22A002F800499C75 /* detailViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1AE22A002F700499C75 /* detailViewClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		510BA1A2229FB42B00499C75 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowResultsClass.swift; sourceTree = "<group>"; };
 		510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultsClass.swift; sourceTree = "<group>"; };
+		510BA1A8229FE9D400499C75 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		510BA1AA229FFBE400499C75 /* castCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = castCollectionViewCell.swift; sourceTree = "<group>"; };
+		510BA1AC229FFBFB00499C75 /* reviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		510BA1AE22A002F700499C75 /* detailViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewClass.swift; sourceTree = "<group>"; };
 		708AA2484355DE82372CB1E3 /* Pods_BookMyShowTrial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMyShowTrial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E955A2690BE5F34B3E05B24 /* Pods-BookMyShowTrial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.release.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.release.xcconfig"; sourceTree = "<group>"; };
 		99A973AC5FBA0016723A2C15 /* Pods-BookMyShowTrial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.debug.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 				510BA19C229F92EC00499C75 /* FeatureCell.swift */,
 				510BA19E229F92FA00499C75 /* CategoryCell.swift */,
 				510BA1A0229F933300499C75 /* ProductCell.swift */,
+				510BA1AA229FFBE400499C75 /* castCollectionViewCell.swift */,
+				510BA1AC229FFBFB00499C75 /* reviewCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +136,7 @@
 				510942CF229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld */,
 				510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */,
 				510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */,
+				510BA1AE22A002F700499C75 /* detailViewClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +146,7 @@
 			children = (
 				510942E5229EBB1B0006DF6B /* HomeViewController.swift */,
 				510942E3229EA23F0006DF6B /* LoginViewController.swift */,
+				510BA1A8229FE9D400499C75 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,12 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510BA1AD229FFBFB00499C75 /* reviewCollectionViewCell.swift in Sources */,
+				510BA1A9229FE9D400499C75 /* DetailViewController.swift in Sources */,
 				510BA1A3229FB42B00499C75 /* Helper.swift in Sources */,
 				510BA19D229F92EC00499C75 /* FeatureCell.swift in Sources */,
+				510BA1AF22A002F800499C75 /* detailViewClass.swift in Sources */,
 				510BA199229F924600499C75 /* HomeTableView.swift in Sources */,
 				510BA19B229F929400499C75 /* ProductsCollectionView.swift in Sources */,
 				510942E4229EA23F0006DF6B /* LoginViewController.swift in Sources */,
 				510BA1A5229FCD3B00499C75 /* TvShowResultsClass.swift in Sources */,
+				510BA1AB229FFBE400499C75 /* castCollectionViewCell.swift in Sources */,
 				510BA1A7229FCD9200499C75 /* MovieResultsClass.swift in Sources */,
 				510BA19F229F92FA00499C75 /* CategoryCell.swift in Sources */,
 				510942C9229E8DB60006DF6B /* AppDelegate.swift in Sources */,

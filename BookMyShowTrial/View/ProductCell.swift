@@ -14,4 +14,6 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var popularityLabelOutlet: UILabel!
     @IBOutlet weak var rateLabelOutlet: UILabel!
     @IBOutlet weak var titleLabelOutlet: UILabel!
+    var categoryType: Int? //0: Movie, 1: TvShow
+    var id: Int?
 }
