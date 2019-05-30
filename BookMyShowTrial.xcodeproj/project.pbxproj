@@ -16,6 +16,15 @@
 		510942E0229E96040006DF6B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 510942DF229E96040006DF6B /* Podfile */; };
 		510942E2229E9F440006DF6B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 510942E1229E9F440006DF6B /* credentials.plist */; };
 		510942E4229EA23F0006DF6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510942E3229EA23F0006DF6B /* LoginViewController.swift */; };
+		510942E6229EBB1B0006DF6B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510942E5229EBB1B0006DF6B /* HomeViewController.swift */; };
+		510BA199229F924600499C75 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA198229F924600499C75 /* HomeTableView.swift */; };
+		510BA19B229F929400499C75 /* ProductsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA19A229F929400499C75 /* ProductsCollectionView.swift */; };
+		510BA19D229F92EC00499C75 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA19C229F92EC00499C75 /* FeatureCell.swift */; };
+		510BA19F229F92FA00499C75 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA19E229F92FA00499C75 /* CategoryCell.swift */; };
+		510BA1A1229F933300499C75 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A0229F933300499C75 /* ProductCell.swift */; };
+		510BA1A3229FB42B00499C75 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A2229FB42B00499C75 /* Helper.swift */; };
+		510BA1A5229FCD3B00499C75 /* TvShowResultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */; };
+		510BA1A7229FCD9200499C75 /* MovieResultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +38,15 @@
 		510942DF229E96040006DF6B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		510942E1229E9F440006DF6B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		510942E3229EA23F0006DF6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		510942E5229EBB1B0006DF6B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		510BA198229F924600499C75 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		510BA19A229F929400499C75 /* ProductsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionView.swift; sourceTree = "<group>"; };
+		510BA19C229F92EC00499C75 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		510BA19E229F92FA00499C75 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		510BA1A0229F933300499C75 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		510BA1A2229FB42B00499C75 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowResultsClass.swift; sourceTree = "<group>"; };
+		510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultsClass.swift; sourceTree = "<group>"; };
 		708AA2484355DE82372CB1E3 /* Pods_BookMyShowTrial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookMyShowTrial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E955A2690BE5F34B3E05B24 /* Pods-BookMyShowTrial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.release.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.release.xcconfig"; sourceTree = "<group>"; };
 		99A973AC5FBA0016723A2C15 /* Pods-BookMyShowTrial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookMyShowTrial.debug.xcconfig"; path = "Target Support Files/Pods-BookMyShowTrial/Pods-BookMyShowTrial.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,16 +95,65 @@
 		510942C7229E8DB60006DF6B /* BookMyShowTrial */ = {
 			isa = PBXGroup;
 			children = (
-				510942C8229E8DB60006DF6B /* AppDelegate.swift */,
-				510942CC229E8DB60006DF6B /* Main.storyboard */,
-				510942D2229E8DC10006DF6B /* Assets.xcassets */,
-				510942D4229E8DC10006DF6B /* LaunchScreen.storyboard */,
 				510942D7229E8DC10006DF6B /* Info.plist */,
 				510942E1229E9F440006DF6B /* credentials.plist */,
-				510942CF229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld */,
-				510942E3229EA23F0006DF6B /* LoginViewController.swift */,
+				510942EB229EBB640006DF6B /* Credentials */,
+				510942EA229EBB530006DF6B /* Helper */,
+				510942E9229EBB490006DF6B /* Controller */,
+				510942E8229EBB430006DF6B /* Model */,
+				510942E7229EBB380006DF6B /* View */,
 			);
 			path = BookMyShowTrial;
+			sourceTree = "<group>";
+		};
+		510942E7229EBB380006DF6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				510942CC229E8DB60006DF6B /* Main.storyboard */,
+				510942D4229E8DC10006DF6B /* LaunchScreen.storyboard */,
+				510BA198229F924600499C75 /* HomeTableView.swift */,
+				510BA19A229F929400499C75 /* ProductsCollectionView.swift */,
+				510BA19C229F92EC00499C75 /* FeatureCell.swift */,
+				510BA19E229F92FA00499C75 /* CategoryCell.swift */,
+				510BA1A0229F933300499C75 /* ProductCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		510942E8229EBB430006DF6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				510942CF229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld */,
+				510BA1A4229FCD3B00499C75 /* TvShowResultsClass.swift */,
+				510BA1A6229FCD9200499C75 /* MovieResultsClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		510942E9229EBB490006DF6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				510942E5229EBB1B0006DF6B /* HomeViewController.swift */,
+				510942E3229EA23F0006DF6B /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		510942EA229EBB530006DF6B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				510942D2229E8DC10006DF6B /* Assets.xcassets */,
+				510942C8229E8DB60006DF6B /* AppDelegate.swift */,
+				510BA1A2229FB42B00499C75 /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		510942EB229EBB640006DF6B /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Credentials;
 			sourceTree = "<group>";
 		};
 		7800D7122C831B7B2F59BECC /* Frameworks */ = {
@@ -232,9 +299,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510BA1A3229FB42B00499C75 /* Helper.swift in Sources */,
+				510BA19D229F92EC00499C75 /* FeatureCell.swift in Sources */,
+				510BA199229F924600499C75 /* HomeTableView.swift in Sources */,
+				510BA19B229F929400499C75 /* ProductsCollectionView.swift in Sources */,
 				510942E4229EA23F0006DF6B /* LoginViewController.swift in Sources */,
+				510BA1A5229FCD3B00499C75 /* TvShowResultsClass.swift in Sources */,
+				510BA1A7229FCD9200499C75 /* MovieResultsClass.swift in Sources */,
+				510BA19F229F92FA00499C75 /* CategoryCell.swift in Sources */,
 				510942C9229E8DB60006DF6B /* AppDelegate.swift in Sources */,
+				510BA1A1229F933300499C75 /* ProductCell.swift in Sources */,
 				510942D1229E8DB60006DF6B /* BookMyShowTrial.xcdatamodeld in Sources */,
+				510942E6229EBB1B0006DF6B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

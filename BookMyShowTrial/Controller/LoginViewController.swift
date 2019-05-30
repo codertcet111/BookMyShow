@@ -48,6 +48,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
             let email = user.profile.email
             // ...
             print(email)
+            var secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//            let secondViewController:HomeViewController = HomeViewController()
+            self.present(secondViewController, animated: true, completion: nil)
+            
             //Here perform the segue to Home Page
         }
     }
