@@ -94,7 +94,7 @@
                                                         <constraint firstAttribute="height" constant="170" id="wZ4-H2-5yc"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aeL-Gs-Od0">
-                                                        <size key="itemSize" width="50" height="170"/>
+                                                        <size key="itemSize" width="150" height="170"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -121,28 +121,37 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDV-UU-6oH">
-                                                                        <rect key="frame" x="21" y="147" width="31.5" height="18"/>
+                                                                        <rect key="frame" x="24" y="147" width="31.5" height="18"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popularity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJK-5Y-HJX">
-                                                                        <rect key="frame" x="70" y="147" width="69" height="18"/>
+                                                                        <rect key="frame" x="72" y="147" width="69" height="18"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myWishlist" translatesAutoresizingMaskIntoConstraints="NO" id="ZAb-wx-Bel">
+                                                                        <rect key="frame" x="54" y="150" width="15" height="15"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="15" id="MNo-sT-x8u"/>
+                                                                            <constraint firstAttribute="width" constant="15" id="Rgn-3Q-M9e"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
                                                                 <constraint firstItem="kQu-uS-PBj" firstAttribute="top" secondItem="Msm-yF-ezt" secondAttribute="bottom" constant="3" id="73G-ct-p5X"/>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="ZAb-wx-Bel" secondAttribute="bottom" constant="5" id="A89-qY-4tU"/>
                                                                 <constraint firstItem="Msm-yF-ezt" firstAttribute="top" secondItem="Zph-8W-hnR" secondAttribute="top" constant="5" id="DhN-M1-jtN"/>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="bDV-UU-6oH" secondAttribute="bottom" constant="5" id="Hga-eA-CTN"/>
                                                                 <constraint firstItem="kQu-uS-PBj" firstAttribute="centerX" secondItem="Zph-8W-hnR" secondAttribute="centerX" id="M1l-WX-9Ws"/>
                                                                 <constraint firstAttribute="bottomMargin" secondItem="RJK-5Y-HJX" secondAttribute="bottom" constant="5" id="X1z-8S-qf4"/>
-                                                                <constraint firstItem="bDV-UU-6oH" firstAttribute="leading" secondItem="Zph-8W-hnR" secondAttribute="leadingMargin" constant="5" id="e1f-cd-VNT"/>
+                                                                <constraint firstItem="bDV-UU-6oH" firstAttribute="leading" secondItem="Zph-8W-hnR" secondAttribute="leadingMargin" constant="8" id="e1f-cd-VNT"/>
                                                                 <constraint firstItem="Msm-yF-ezt" firstAttribute="centerX" secondItem="Zph-8W-hnR" secondAttribute="centerX" id="mPX-RZ-ZvH"/>
-                                                                <constraint firstItem="RJK-5Y-HJX" firstAttribute="trailing" secondItem="Zph-8W-hnR" secondAttribute="trailingMargin" constant="5" id="uei-rW-Oy5"/>
+                                                                <constraint firstItem="RJK-5Y-HJX" firstAttribute="trailing" secondItem="Zph-8W-hnR" secondAttribute="trailingMargin" constant="7" id="uei-rW-Oy5"/>
+                                                                <constraint firstItem="RJK-5Y-HJX" firstAttribute="leading" secondItem="ZAb-wx-Bel" secondAttribute="trailing" constant="3" id="vrd-Am-ypl"/>
                                                             </constraints>
                                                             <size key="customSize" width="150" height="170"/>
                                                             <connections>
@@ -256,5 +265,6 @@
     </scenes>
     <resources>
         <image name="Entertanment" width="225" height="225"/>
+        <image name="myWishlist" width="500" height="500"/>
     </resources>
 </document>

@@ -166,8 +166,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(section)
-        if section == 0{
+        if collectionView.tag == 1{
             return self.MovieResults?.results.count ?? 0
         }else{
             return self.TvShowsResults?.results.count ?? 0
@@ -176,7 +175,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        if indexPath.section == 0{
+        print("Tag: \(collectionView.tag)")
+        print("row: \(indexPath.row)")
+        print("Section: \(indexPath.section)")
+        if collectionView.tag == 1{
             if let tempDetail = self.MovieResults?.results[indexPath.row]{
                 cell.titleLabelOutlet.text = tempDetail.title
                 let imageURL = URL(string: getImageUrl("w500", tempDetail.poster_path))!
