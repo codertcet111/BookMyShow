@@ -10,6 +10,11 @@ import UIKit
 
 class reviewCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var userrReviewTextLabel: UILabel!
+    @IBOutlet weak var userrReviewTextLabel: UILabel!{
+        didSet{
+            userrReviewTextLabel.layer.cornerRadius = 8.0
+            userrReviewTextLabel.clipsToBounds = true
+        }
+    }
     
 }

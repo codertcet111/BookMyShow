@@ -11,7 +11,12 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate {
 
-    @IBOutlet weak var signInButton: GIDSignInButton!
+    @IBOutlet weak var signInButton: GIDSignInButton!{
+        didSet{
+            signInButton.layer.cornerRadius = 8.0
+            signInButton.clipsToBounds = true
+        }
+    }
     
     @IBAction func SignInAction(_ sender: UIButton) {
         if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
@@ -20,7 +25,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         GIDSignIn.sharedInstance().signIn()
     }
     
-    @IBOutlet weak var continueSignInButton: UIButton!
+    @IBOutlet weak var continueSignInButton: UIButton!{
+        didSet{
+            continueSignInButton.layer.cornerRadius = 8.0
+            continueSignInButton.clipsToBounds = true
+        }
+    }
     @IBAction func countinueSignInAction(_ sender: UIButton) {
         if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController

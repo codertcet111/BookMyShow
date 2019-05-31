@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     var categoryType: String = ""
     var id: Int = 0
     var model: detailsViewClass?
-    var commentsData = [[String]]()
+    var commentsData = [String]()
     
 //    init(_ id: Int,_ categoryType: String) {
 //        self.id = id
@@ -28,8 +28,23 @@ class DetailViewController: UIViewController {
 //        fatalError("init(coder:) has not been implemented")
 //    }
     
+    @IBOutlet var popUpView: UIView!{
+        didSet{
+            popUpView.layer.cornerRadius = 8.0
+            popUpView.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var detailView: UIView!
+    @IBAction func DoneButtonAction(_ sender: UIButton) {
+        self.popUpView.removeFromSuperview()
+    }
     
+    @IBOutlet weak var popUpViewLabelOutlet: UILabel!{
+        didSet{
+            popUpViewLabelOutlet.layer.cornerRadius = 8.0
+            popUpViewLabelOutlet.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var castCollectionViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var rateTextview: UILabel!
     @IBOutlet weak var ProductimageView: UIImageView!
@@ -38,14 +53,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var castingPeopleLabel: UILabel!{
         didSet{
             castingPeopleLabel.layer.borderWidth = 0.5
-            castingPeopleLabel.layer.borderColor = UIColor.black.cgColor
+            castingPeopleLabel.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     @IBOutlet weak var castCollectionview: UICollectionView!
     @IBOutlet weak var reviewLabelView: UIView!{
         didSet{
             reviewLabelView.layer.borderWidth = 0.5
-            reviewLabelView.layer.borderColor = UIColor.black.cgColor
+            reviewLabelView.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     
@@ -197,7 +212,7 @@ class DetailViewController: UIViewController {
             let commentEntity = NSEntityDescription.entity(forEntityName: "Comments", in: managedContext)!
             let commentObject = NSManagedObject(entity: commentEntity, insertInto: managedContext)
             commentObject.setValue(comment, forKeyPath: "comment")
-            commentObject.setValue(SIGNEDIN_USER_EMAIL ?? "Anonymous", forKeyPath: "email")
+            commentObject.setValue(self.model?.id, forKeyPath: "productId")
             
             do{
                 try managedContext.save()
@@ -212,10 +227,11 @@ class DetailViewController: UIViewController {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let managedContext = appDelegate.persistentContainer.viewContext
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comments")
+            fetchRequest.predicate = NSPredicate(format: "productId == \(self.model?.id ?? 0)")
             do{
                 let result = try managedContext.fetch(fetchRequest)
                 for data in result as! [NSManagedObject] {
-                    self.commentsData.append([data.value(forKey: "comment") as! String, data.value(forKey: "email") as! String])
+                    self.commentsData.append(data.value(forKey: "comment") as! String)
                 }
             } catch {
                 print("Failed to read Data")
@@ -247,19 +263,22 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCollectionViewCell", for: indexPath) as! reviewCollectionViewCell
-            let normalText = self.commentsData[indexPath.row][0]
-            let boldText  = " - by :" + self.commentsData[indexPath.row][1]
-            let attributedString = NSMutableAttributedString(string:normalText)
-            let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
-            let boldString = NSMutableAttributedString(string: boldText, attributes:attrs)
-            attributedString.append(boldString)
-            cell.userrReviewTextLabel.attributedText = attributedString
+            cell.userrReviewTextLabel.text = self.commentsData[indexPath.row]
             return cell
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == 1{
+            self.view.addSubview(self.popUpView)
+            self.popUpViewLabelOutlet.text = self.commentsData[indexPath.row]
+            self.popUpView.center = self.view.center
+            
+        }
     }
     
 }

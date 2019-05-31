@@ -12,7 +12,12 @@ class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var productCollectionView: ProductsCollectionView!
     
-    @IBOutlet weak var collectionHeaderview: UIView!
+    @IBOutlet weak var collectionHeaderview: UIView!{
+        didSet{
+            collectionHeaderview.layer.borderWidth = 0.5
+            collectionHeaderview.layer.borderColor = UIColor.lightGray.cgColor
+        }
+    }
     @IBOutlet weak var categoryTitleLabelOutlet: UILabel!
     
     override func awakeFromNib() {
