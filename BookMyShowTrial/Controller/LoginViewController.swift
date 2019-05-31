@@ -6,11 +6,20 @@
 //  Copyright © 2019 Shubham Mishra. All rights reserved.
 //
 
+/*
+Note: View Hierarchy
+ In the view We have 2 buttons 'sign in with G+' and 'Continue with currently signedIN user'
+ For the first time of Applaunch only one button is visible, 'sign in with G+'
+ For the next time onwards both buttons will be visible, So if user want to sign in with diffrent Account then by clicking on 1st button He/She will be signed out and
+ will be asked to signIn with diffrent account
+*/
 import UIKit
 import GoogleSignIn
+//GoogleSignIn: For sign in with google
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelegate {
 
+    //MARK: signInButton is the main button for logIN
     @IBOutlet weak var signInButton: GIDSignInButton!{
         didSet{
             signInButton.layer.cornerRadius = 8.0
@@ -18,6 +27,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         }
     }
     
+    //MARK: SignInAction
     @IBAction func SignInAction(_ sender: UIButton) {
         if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
             GIDSignIn.sharedInstance().signOut()
@@ -25,12 +35,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         GIDSignIn.sharedInstance().signIn()
     }
     
+    //MARK: continueSignInButton for countinue with current logIn
     @IBOutlet weak var continueSignInButton: UIButton!{
         didSet{
             continueSignInButton.layer.cornerRadius = 8.0
             continueSignInButton.clipsToBounds = true
         }
     }
+    
+    //MARK: countinueSignInAction
     @IBAction func countinueSignInAction(_ sender: UIButton) {
         if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -41,25 +54,28 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: GoogleSignIn SDK configurations
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().clientID = "615844827053-mvj0quhaojq90ee7g00innj565bf5feg.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = Google_Sign_In_Client_Id
         GIDSignIn.sharedInstance().delegate = self
         
+        //Google SDK have GIDSignIn.sharedInstance()?.hasAuthInKeychain() method for any Logged In user
         if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
             self.continueSignInButton.isHidden = false
             self.continueSignInButton.setTitle("Continue as Current Login",for: .normal)
         }else{
             self.continueSignInButton.isHidden = true
         }
-
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: GoogleSignIn open url: Dont edit below method
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url as URL?,
                                                  sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: options[UIApplication.OpenURLOptionsKey.annotation])
     }
+    
+    //MARK: SignIn main method
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
@@ -68,15 +84,16 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
             self.showAlert("Some Error Accured")
             
         } else {
+            //Sign In done successfully, write code below for using loggedIn user's data
             SIGNEDIN_USER_EMAIL = user.profile.email
+            //After succesfully logIn the User will be redirected to Home Screen
             let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             let navigationController = UINavigationController(rootViewController: secondViewController)
             self.present(navigationController, animated: true, completion: nil)
-            
-            //Here perform the segue to Home Page
         }
     }
     
+    //MARK: didDisconnectWith
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
@@ -84,6 +101,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         GIDSignIn.sharedInstance().signOut()
     }
     
+    //MARK: showAlert
     func showAlert(_ message: String) -> (){
         let alert = UIAlertController(title: message, message: nil , preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { _ in

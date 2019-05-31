@@ -9,15 +9,22 @@
 import Foundation
 import Alamofire
 
+//below are the some file constants
+//Don't change below GoogleSignIn client Id credential
+let Google_Sign_In_Client_Id = "615844827053-mvj0quhaojq90ee7g00innj565bf5feg.apps.googleusercontent.com"
 let nytRoute = "https://api.themoviedb.org/3/"
+//Below is the image base URl
 let imageBaseUrl = "https://image.tmdb.org/t/p/"
+//Don't change below key, Only update it once you got new API Key
 let apiKey = "d8cf4f63bf49ec4ecb1cd9c4f1318bce"
 let noInternetMessage = "No Internet Connection"
 let somethingWentWrongMessage = "Something Went Wrong"
 let unauthorizedMessage = "Not Authorized"
 let requestLimitExidedMessage = "Sorry, You have exceded request limit"
+let AppName = "BOOk MY SHOW"
 var SIGNEDIN_USER_EMAIL: String?
 
+//This function is to get indivisual Category requests from API
 func getCategoryRequestUrl(_ category: String) -> String{
     var mainUrl = nytRoute
     mainUrl.append("trending/\(category)/day")
@@ -25,6 +32,7 @@ func getCategoryRequestUrl(_ category: String) -> String{
     return mainUrl
 }
 
+//URL for insdivisual Movie or Show detail
 func getMoviesShowUrl(_ type: String,_ id: Int) -> String{
     var mainUrl = nytRoute
     mainUrl.append("\(type)/\(id)")
@@ -32,6 +40,7 @@ func getMoviesShowUrl(_ type: String,_ id: Int) -> String{
     return mainUrl
 }
 
+//URL for getting Image
 func getImageUrl(_ type: String,_ imageUrl: String) -> String{
     var mainUrl = imageBaseUrl
     mainUrl.append("\(type)/\(imageUrl)")
@@ -39,6 +48,8 @@ func getImageUrl(_ type: String,_ imageUrl: String) -> String{
     return mainUrl
 }
 
+//For Alamofire the configurations are done below
+//Change the 25.0 seconds to anythings as per API's and your's mutual understanding
 func getManagerWithConf() -> SessionManager
 {
     let configuration = URLSessionConfiguration.default

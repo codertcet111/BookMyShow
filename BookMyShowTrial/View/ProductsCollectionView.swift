@@ -10,11 +10,5 @@ import UIKit
 
 class ProductsCollectionView: UICollectionView {
     
-//    override func awakeFromNib() {
-//        self.delegate = self
-//        self.dataSource = self
-//    }
-
-    
 
 }

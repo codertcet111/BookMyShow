@@ -6,11 +6,24 @@
 //  Copyright © 2019 Shubham Mishra. All rights reserved.
 //
 
+/*
+ Note: View Hierarchy
+ In this view we have product description and also the Cast and producers detail.
+ Other than this the user can add a comment for the product
+ The comment will be stored on the device with the help of core data, and will be shown in the comment's section.
+ Note: A big mistake that in the ViewController I have used 'review' for labels and UI components and 'comment' for backEnd process, so do not get confused by this
+ Note: The term 'Product' have been refered for the Movie/TvShow
+ */
+
 import UIKit
 import Alamofire
 import SDWebImage
 import CoreData
-import GoogleSignIn
+/*
+ Alamofire: Networking
+ SDWebImage: Image fetch and caching
+ CoreData: For managing the local DataBase
+ */
 
 class DetailViewController: UIViewController {
 
@@ -19,15 +32,7 @@ class DetailViewController: UIViewController {
     var model: detailsViewClass?
     var commentsData = [String]()
     
-//    init(_ id: Int,_ categoryType: String) {
-//        self.id = id
-//        self.categoryType = categoryType
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
+    //MARk: popUpView is used to show user's comment in detail
     @IBOutlet var popUpView: UIView!{
         didSet{
             popUpView.layer.cornerRadius = 8.0
@@ -64,8 +69,11 @@ class DetailViewController: UIViewController {
         }
     }
     
+    //Review tag is same as Comment tag, so don't be confused
     @IBOutlet weak var reviewCollectionViewHeightConstraints: NSLayoutConstraint!
     @IBOutlet weak var reviewesCollectionView: UICollectionView!
+    
+    //addReviewButtonAction is to add comment to the DB
     @IBAction func addReviewButtonAction(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add Comment", message: "Enter The Comment", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -96,10 +104,12 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    //MARK: buildDataSource it is the main method for requesting the API and setting the view
     func buildDataSource(){
         self.showActivityIndicator() 
         self.alamoFireManager = getManagerWithConf()
-        //Below requesting to NYT's for section: home
+        //Below requesting to API for products detail
         self.alamoFireManager.request(getMoviesShowUrl(self.categoryType, self.id))
             .responseJSON { response in
                 self.stopActivityIndicator()
@@ -137,17 +147,19 @@ class DetailViewController: UIViewController {
         
     }
     
+    //MARK: setDetailview, this method will set the view
     func setDetailview() -> (){
         self.TitleTextview.text = self.model?.name != nil ? self.model?.name : self.model?.title
         self.rateTextview.text = String(self.model?.vote_average ?? 0.0)
         self.descriptionTextView.text = String(self.model?.popularity ?? 0) + " Views"
+        //Setting the products main image
         let imageURL = URL(string: getImageUrl("w500", self.model?.poster_path ?? ""))!
         self.ProductimageView.sd_setShowActivityIndicatorView(true)
         self.ProductimageView.sd_setIndicatorStyle(.gray)
         self.ProductimageView.contentMode = UIView.ContentMode.scaleAspectFit
         self.ProductimageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named:"Entertanment.png"))
+        //If in case no data for cast and producer
         if noDataForProducersAndCast(){
-//            self.castCollectionview.isHidden = true
             self.castCollectionViewHeightConstraints.constant = 5
         }else{
             self.setDataForProducersAndCast()
@@ -156,6 +168,7 @@ class DetailViewController: UIViewController {
         self.setCommentData()
     }
     
+    //This method will call retrieveCommentData() and also will set the review's(comment) view
     func setCommentData() -> (){
         //Take the data from DB and dump into reviewData array
         self.retrieveCommentData()
@@ -171,6 +184,7 @@ class DetailViewController: UIViewController {
         return self.model?.production_companies?.count == 0 && self.model?.created_by?.count == 0
     }
     
+    //MARK: setDataForProducersAndCast setting the cast and producers data
     func setDataForProducersAndCast() -> (){
         for creator in self.model?.created_by ?? []{
             self.producersAndCastName.append(creator.name ?? "")
@@ -180,6 +194,7 @@ class DetailViewController: UIViewController {
             self.producersAndCastName.append(producer.name ?? "")
             self.producersAndCastURL.append(producer.logo_path ?? "")
         }
+        //Initializing the cast collection view
         self.castCollectionview.reloadData()
     }
     
@@ -206,9 +221,13 @@ class DetailViewController: UIViewController {
         self.activityView?.stopAnimating()
     }
     
+    //MARK: saveComment it will connect to PersistentManager for saving the data to DB
     func saveComment(_ comment: String){
+        //let's get appDelegate object
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            //managedContextObject
             let managedContext = appDelegate.persistentContainer.viewContext
+            //For Comment Entity
             let commentEntity = NSEntityDescription.entity(forEntityName: "Comments", in: managedContext)!
             let commentObject = NSManagedObject(entity: commentEntity, insertInto: managedContext)
             commentObject.setValue(comment, forKeyPath: "comment")
@@ -219,14 +238,17 @@ class DetailViewController: UIViewController {
             } catch let error as NSError{
                 print("Could not save it, \(error), \(error.userInfo)")
             }
+            //After saving the comment to DB it's time to update the view for new comment
             self.setCommentData()
         }
     }
     
+    //MARK: retrieveCommentData it will fetch the data from DB
     func retrieveCommentData(){
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let managedContext = appDelegate.persistentContainer.viewContext
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comments")
+            //Below a condition for fetching comments only for current product
             fetchRequest.predicate = NSPredicate(format: "productId == \(self.model?.id ?? 0)")
             do{
                 let result = try managedContext.fetch(fetchRequest)
@@ -242,8 +264,10 @@ class DetailViewController: UIViewController {
 
 }
 
+//MARK: COllectionView delegate's protocol implementation
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //I have assigned tag to indivisual collectionViews in the storyboard
         if collectionView.tag == 0{
             return self.producersAndCastName.count
         }else{
@@ -277,7 +301,6 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             self.view.addSubview(self.popUpView)
             self.popUpViewLabelOutlet.text = self.commentsData[indexPath.row]
             self.popUpView.center = self.view.center
-            
         }
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
 
+    //IMPORTANT: This tableViewCell is containing CollectionView
     @IBOutlet weak var productCollectionView: ProductsCollectionView!
     
     @IBOutlet weak var collectionHeaderview: UIView!{
@@ -27,6 +28,7 @@ class CategoryCell: UITableViewCell {
     
 }
 
+//The below function will set the delegate for collectionview
 extension CategoryCell{
     func setCollectionViewDataSourceDelegate <D: UICollectionViewDelegate & UICollectionViewDataSource>(_ dataSourceDelegate: D, forRow row:Int){
         productCollectionView.delegate = dataSourceDelegate
