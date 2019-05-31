@@ -14,7 +14,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
     @IBOutlet weak var signInButton: GIDSignInButton!
     
     @IBAction func SignInAction(_ sender: UIButton) {
+        if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
+            GIDSignIn.sharedInstance().signOut()
+        }
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    @IBOutlet weak var continueSignInButton: UIButton!
+    @IBAction func countinueSignInAction(_ sender: UIButton) {
+        if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
+            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let navigationController = UINavigationController(rootViewController: secondViewController)
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -22,6 +34,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().clientID = "615844827053-mvj0quhaojq90ee7g00innj565bf5feg.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        
+        if GIDSignIn.sharedInstance()?.hasAuthInKeychain() ?? false{
+            self.continueSignInButton.isHidden = false
+            self.continueSignInButton.setTitle("Continue as Current Login",for: .normal)
+        }else{
+            self.continueSignInButton.isHidden = true
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -39,18 +58,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,GIDSignInDelega
             self.showAlert("Some Error Accured")
             
         } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            // ...
-            print(email)
-            var secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-//            let secondViewController:HomeViewController = HomeViewController()
-            self.present(secondViewController, animated: true, completion: nil)
+            SIGNEDIN_USER_EMAIL = user.profile.email
+            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let navigationController = UINavigationController(rootViewController: secondViewController)
+            self.present(navigationController, animated: true, completion: nil)
             
             //Here perform the segue to Home Page
         }

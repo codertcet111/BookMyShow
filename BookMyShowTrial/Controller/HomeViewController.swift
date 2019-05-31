@@ -209,8 +209,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailViewController.id = collectionView.tag == 1 ? self.MovieResults?.results[indexPath.row].id : self.TvShowsResults?.results[indexPath.row].id
+        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailViewController.id = (collectionView.tag == 1 ? self.MovieResults?.results[indexPath.row].id : self.TvShowsResults?.results[indexPath.row].id) ?? 0
         detailViewController.categoryType = collectionView.tag == 1 ? "movie" : "tv"
         self.present(detailViewController, animated: true, completion: nil)
     }

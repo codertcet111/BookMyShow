@@ -16,6 +16,7 @@ let noInternetMessage = "No Internet Connection"
 let somethingWentWrongMessage = "Something Went Wrong"
 let unauthorizedMessage = "Not Authorized"
 let requestLimitExidedMessage = "Sorry, You have exceded request limit"
+var SIGNEDIN_USER_EMAIL: String?
 
 func getCategoryRequestUrl(_ category: String) -> String{
     var mainUrl = nytRoute
