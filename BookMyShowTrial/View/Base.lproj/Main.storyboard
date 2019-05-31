@@ -235,7 +235,7 @@
                     <navigationItem key="navigationItem" id="JHQ-6x-ajD"/>
                     <connections>
                         <outlet property="homeTableViewOutlet" destination="lCd-UM-g0B" id="GhD-7G-jaT"/>
-                        <segue destination="RdI-7k-QsQ" kind="show" identifier="detailShegue" id="M2T-6q-jpo"/>
+                        <segue destination="RdI-7k-QsQ" kind="show" identifier="detailSegue" id="M2T-6q-jpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bh5-z3-2Ko" userLabel="First Responder" sceneMemberID="firstResponder"/>

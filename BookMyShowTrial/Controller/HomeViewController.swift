@@ -133,6 +133,45 @@ class HomeViewController: UIViewController{
     func stopActivityIndicator(){
         self.activityView?.stopAnimating()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detailSegue"{
+            let passedData = sender as? NSArray
+            let selectedIndexPath = passedData?[1] as? NSIndexPath
+            let tag = passedData?[0] as? NSInteger
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.id = (tag == 1 ? self.MovieResults?.results[selectedIndexPath?.row ?? 0].id : self.TvShowsResults?.results[selectedIndexPath?.row ?? 0].id) ?? 0
+            detailViewController.categoryType = (tag == 1 ? "movie" : "tv")
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        //        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+//        //        detailViewController.id = (collectionView.tag == 1 ? self.MovieResults?.results[indexPath.row].id : self.TvShowsResults?.results[indexPath.row].id) ?? 0
+//        //        detailViewController.categoryType = collectionView.tag == 1 ? "movie" : "tv"
+//        //        let navigationController = UINavigationController(rootViewController: detailViewController)
+//        //        self.present(navigationController, animated: true, completion: nil)
+//
+//        if let cell = sender as? UICollectionViewCell,
+//            let indexPath = self.collectionView.indexPath(for: cell) {
+//
+//            let vc = segue.destination as! SecondViewController //Cast with your DestinationController
+//            //Now simply set the title property of vc
+//            vc.title = items[indexPath.row] as String
+//        }
+//    }
+//    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+//        if segue.identifier == "detailSegue" {
+//            let productDetail = segue.destination as! DetailViewController
+//            if let lineItem = sender as? HomePageDesignItems {
+//                productDetail.chosenDesignID = lineItem.internalIdentifier!
+//                productDetail.callSource = "Stories"
+//                productDetail.productName = lineItem.title ?? ""
+//            }
+//        }
+//    }
 
 
 }
@@ -209,9 +248,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailViewController.id = (collectionView.tag == 1 ? self.MovieResults?.results[indexPath.row].id : self.TvShowsResults?.results[indexPath.row].id) ?? 0
-        detailViewController.categoryType = collectionView.tag == 1 ? "movie" : "tv"
-        self.present(detailViewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "detailSegue", sender: [collectionView.tag, indexPath])
     }
 }
